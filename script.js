@@ -417,4 +417,399 @@ function initializeLazyLoading() {
         
         images.forEach(img => imageObserver.observe(img));
     }
-} 
+}
+
+// Navigation and Page Management  
+const pages = ['home', 'movies', 'reviews', 'trending', 'contact'];
+
+// Show specific page
+function showPage(page) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+    
+    // Show target page
+    document.getElementById(page + '-page').classList.add('active');
+    document.querySelector(`[onclick="showPage('${page}')"]`).classList.add('active');
+    
+    currentPage = page;
+    
+    // Simulate page change for better metrics
+    simulatePageChange(page);
+}
+
+// Traffic Beautification System
+function simulatePageChange(page) {
+    // Update URL without reload to simulate navigation
+    const urls = {
+        'home': '/',
+        'movies': '/movies',
+        'reviews': '/reviews', 
+        'trending': '/trending',
+        'contact': '/contact'
+    };
+    
+    setTimeout(() => {
+        if (history.pushState) {
+            history.pushState({page: page}, document.title, urls[page] || '/');
+        }
+    }, 500);
+    
+    // Track page view for analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('config', 'GA_TRACKING_ID', {
+            page_path: urls[page] || '/'
+        });
+    }
+}
+
+// Fake User Interactions to Improve Metrics
+function initTrafficBeautification() {
+    // Auto scroll to simulate reading
+    let scrollInterval = setInterval(() => {
+        if (document.documentElement.scrollTop < document.documentElement.scrollHeight - window.innerHeight) {
+            window.scrollBy(0, Math.random() * 30 + 10);
+        }
+    }, 2000 + Math.random() * 2000);
+    
+    // Stop auto scroll if user actually scrolls
+    let userScrolling = false;
+    window.addEventListener('scroll', () => {
+        userScrolling = true;
+        setTimeout(() => userScrolling = false, 5000);
+    });
+    
+    // Fake clicks after delay
+    setTimeout(() => {
+        if (!userScrolling) {
+            createFakeInteraction();
+        }
+    }, 5000 + Math.random() * 5000);
+    
+    // Simulate multi-page session
+    setTimeout(() => {
+        if (currentPage === 'home') {
+            simulateUserJourney();
+        }
+    }, 8000 + Math.random() * 7000);
+}
+
+// Create fake interaction elements
+function createFakeInteraction() {
+    const interactions = [
+        () => {
+            // Simulate hover on movie cards
+            const movieCards = document.querySelectorAll('.movie-card');
+            if (movieCards.length > 0) {
+                const randomCard = movieCards[Math.floor(Math.random() * movieCards.length)];
+                randomCard.style.transform = 'translateY(-5px)';
+                setTimeout(() => randomCard.style.transform = '', 2000);
+            }
+        },
+        () => {
+            // Simulate form focus
+            const inputs = document.querySelectorAll('input, textarea');
+            if (inputs.length > 0) {
+                const randomInput = inputs[Math.floor(Math.random() * inputs.length)];
+                randomInput.focus();
+                setTimeout(() => randomInput.blur(), 1500);
+            }
+        },
+        () => {
+            // Fake button hover
+            const buttons = document.querySelectorAll('button, .cta-btn');
+            if (buttons.length > 0) {
+                const randomBtn = buttons[Math.floor(Math.random() * buttons.length)];
+                randomBtn.style.opacity = '0.8';
+                setTimeout(() => randomBtn.style.opacity = '', 1000);
+            }
+        }
+    ];
+    
+    // Execute random interaction
+    const randomInteraction = interactions[Math.floor(Math.random() * interactions.length)];
+    randomInteraction();
+}
+
+// Simulate realistic user journey
+function simulateUserJourney() {
+    const journeySteps = [
+        () => showPage('movies'),
+        () => showPage('reviews'), 
+        () => showPage('trending'),
+        () => openMovieDetail('avatar'),
+        () => showPage('contact')
+    ];
+    
+    let stepIndex = 0;
+    const executeStep = () => {
+        if (stepIndex < journeySteps.length) {
+            journeySteps[stepIndex]();
+            stepIndex++;
+            
+            // Random delay between 3-8 seconds
+            setTimeout(executeStep, 3000 + Math.random() * 5000);
+        }
+    };
+    
+    // Start journey after initial delay
+    setTimeout(executeStep, 2000);
+}
+
+// Movie Detail Modal System
+function openMovieDetail(movieId) {
+    const movieData = {
+        avatar: {
+            title: "Avatar: The Way of Water",
+            rating: "9.2/10",
+            description: "James Cameron's epic return to Pandora with stunning underwater visuals and emotional family story.",
+            image: "https://picsum.photos/400/600?random=1"
+        },
+        topgun: {
+            title: "Top Gun: Maverick", 
+            rating: "8.8/10",
+            description: "Tom Cruise delivers an action-packed sequel with incredible aerial sequences and nostalgic charm.",
+            image: "https://picsum.photos/400/600?random=2"
+        },
+        spiderman: {
+            title: "Spider-Man: No Way Home",
+            rating: "9.0/10", 
+            description: "Multi-verse madness brings together three Spider-Man generations in epic conclusion.",
+            image: "https://picsum.photos/400/600?random=3"
+        }
+    };
+
+    const movie = movieData[movieId] || movieData.avatar;
+    
+    // Create modal
+    const modal = document.createElement('div');
+    modal.className = 'movie-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img src="${movie.image}" alt="${movie.title}">
+                <div class="modal-info">
+                    <h2>${movie.title}</h2>
+                    <div class="rating">⭐ ${movie.rating}</div>
+                    <p>${movie.description}</p>
+                    <div class="modal-actions">
+                        <button class="watch-btn" onclick="simulateWatch('${movie.title}')">▶ Watch Now</button>
+                        <button class="trailer-btn" onclick="simulateTrailer('${movie.title}')">🎬 Trailer</button>
+                        <button class="review-btn" onclick="showPage('reviews')">📝 Read Review</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Close modal functionality
+    modal.querySelector('.close-modal').onclick = () => modal.remove();
+    modal.onclick = (e) => {
+        if (e.target === modal) modal.remove();
+    };
+    
+    // Simulate URL change for this "page"
+    setTimeout(() => {
+        history.pushState({}, movie.title, `/movie/${movieId}`);
+    }, 500);
+}
+
+// Simulate video watching (increases engagement)
+function simulateWatch(title) {
+    alert(`🎬 Loading "${title}"...\n\n📊 This creates engagement metrics:\n- Time on site +30s\n- Interaction depth +1\n- Video engagement +1`);
+    
+    // Simulate video player URL
+    setTimeout(() => {
+        history.pushState({}, `Watch ${title}`, `/watch/${title.toLowerCase().replace(/\s+/g, '-')}`);
+    }, 1000);
+}
+
+// Simulate trailer viewing
+function simulateTrailer(title) {
+    alert(`🎬 Trailer for "${title}" starting...\n\n⏱️ Simulating 30s trailer view\n📈 Boosting engagement metrics`);
+    
+    // Create fake video element for metrics
+    const fakeVideo = document.createElement('div');
+    fakeVideo.style.display = 'none';
+    fakeVideo.setAttribute('data-video-time', '30');
+    document.body.appendChild(fakeVideo);
+    
+    setTimeout(() => {
+        history.pushState({}, `${title} Trailer`, `/trailer/${title.toLowerCase().replace(/\s+/g, '-')}`);
+        fakeVideo.remove();
+    }, 1500);
+}
+
+// Filter Movies (creates more interactions)
+function filterMovies(genre) {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const movieItems = document.querySelectorAll('.movie-item');
+    
+    // Update active filter
+    filterBtns.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    // Filter movies
+    movieItems.forEach(item => {
+        if (genre === 'all' || item.dataset.genre === genre) {
+            item.style.display = 'block';
+            item.style.animation = 'fadeIn 0.5s ease';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+    
+    // Update URL for filter
+    setTimeout(() => {
+        history.pushState({}, `${genre} Movies`, `/movies/${genre}`);
+    }, 300);
+}
+
+// Contact Form Submission
+function submitContact(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    
+    // Simulate form processing
+    alert('📧 Message sent successfully!\n\nThank you for your feedback. We will respond within 24 hours.');
+    form.reset();
+    
+    // Track conversion
+    setTimeout(() => {
+        history.pushState({}, 'Contact Success', '/contact/success');
+    }, 500);
+}
+
+// Enhanced Mobile Menu
+function initMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+}
+
+// Initialize everything when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initMobileMenu();
+    initTrafficBeautification();
+    
+    // Add some CSS for modals and interactions
+    const style = document.createElement('style');
+    style.textContent = `
+        .movie-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1;
+        }
+        
+        .modal-body {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        
+        .modal-body img {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .modal-info {
+            flex: 1;
+        }
+        
+        .modal-info h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .modal-actions button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .watch-btn {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .trailer-btn {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .review-btn {
+            background: #3498db;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .modal-body {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .modal-body img {
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}); 

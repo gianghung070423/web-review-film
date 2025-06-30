@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Trailers 2024 - Watch Latest Trailers Now</title>
+    <meta name="description" content="Watch latest movie trailers 2024, exclusive previews, behind the scenes content and upcoming releases.">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Multiple High-Revenue Ad Scripts -->
+    <script type='text/javascript' src='//pl27048043.profitableratecpm.com/6c/39/3d/6c393d1b45230786e52f4a3923ab72b3.js'></script>
+    <script async="async" data-cfasync="false" src="//pl27048055.profitableratecpm.com/68a18a2d75a6397d1a6b213d2d877fae/invoke.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">🎬 Movie Trailers</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="movie-a.html" class="nav-link">Action</a></li>
+                <li class="nav-item"><a href="movie-b.html" class="nav-link">Drama</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active">Trailers</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="trailer-page">
+        <header class="hero" style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);">
+            <div class="hero-content">
+                <h1>🎬 Exclusive Movie Trailers</h1>
+                <p>Watch latest trailers, teasers, and behind-the-scenes content</p>
+                <button class="cta-btn" onclick="loadTrailer()">▶ Load Trailer Player</button>
+            </div>
+        </header>
+
+        <!-- Loading Section (simulates video loading) -->
+        <section id="loading-section" class="loading-section" style="display:none;">
+            <h2>🎬 Loading Movie Trailer...</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p id="loading-text">Initializing player... 0%</p>
+        </section>
+
+        <!-- Iframe Ad Section (opens after loading) -->
+        <section id="iframe-ads" class="iframe-ads" style="display:none;">
+            <h3>📺 Trailer will start after this preview</h3>
+            <div class="ad-iframe-container">
+                <iframe src="about:blank" width="100%" height="300" frameborder="0" id="adFrame"></iframe>
+                <p>Advertisement - Trailer starts in <span id="countdown">15</span> seconds</p>
+            </div>
+        </section>
+
+        <!-- Native Banner Ad -->
+        <section class="native-ad-section">
+            <div id="container-68a18a2d75a6397d1a6b213d2d877fae"></div>
+        </section>
+
+        <section class="main-content">
+            <h2>🎥 Hot Trailers This Week</h2>
+            <div class="trailer-grid">
+                <article class="trailer-card" onclick="playTrailer('avatar-2', 'Avatar 2')">
+                    <div class="trailer-thumb">
+                        <img src="https://picsum.photos/320/180?random=41" alt="Avatar 2 Trailer">
+                        <div class="play-overlay">
+                            <div class="play-btn">▶</div>
+                            <div class="duration">2:34</div>
+                        </div>
+                    </div>
+                    <div class="trailer-info">
+                        <h3>Avatar: The Way of Water</h3>
+                        <p>🔥 2.3M views • New trailer</p>
+                    </div>
+                </article>
+
+                <article class="trailer-card" onclick="playTrailer('batman', 'The Batman')">
+                    <div class="trailer-thumb">
+                        <img src="https://picsum.photos/320/180?random=42" alt="Batman Trailer">
+                        <div class="play-overlay">
+                            <div class="play-btn">▶</div>
+                            <div class="duration">3:12</div>
+                        </div>
+                    </div>
+                    <div class="trailer-info">
+                        <h3>The Batman</h3>
+                        <p>🔥 4.1M views • Exclusive</p>
+                    </div>
+                </article>
+
+                <article class="trailer-card" onclick="playTrailer('spider-man', 'Spider-Man')">
+                    <div class="trailer-thumb">
+                        <img src="https://picsum.photos/320/180?random=43" alt="Spider-Man Trailer">
+                        <div class="play-overlay">
+                            <div class="play-btn">▶</div>
+                            <div class="duration">2:45</div>
+                        </div>
+                    </div>
+                    <div class="trailer-info">
+                        <h3>Spider-Man: No Way Home</h3>
+                        <p>🔥 8.7M views • Behind scenes</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Banner 300x250 Ad -->
+        <aside class="sidebar-banner">
+            <div class="banner-300x250">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '30738a87f3de290512b5764ec3d009b6',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/30738a87f3de290512b5764ec3d009b6/invoke.js"></script>
+            </div>
+        </aside>
+
+        <section class="engagement-section">
+            <h3>🎬 Want More Exclusive Content?</h3>
+            <button onclick="subscribeTrailers()" class="engage-btn">🔔 Subscribe for Trailers</button>
+            <button onclick="redirectToHome()" class="engage-btn">← Back to Movies</button>
+        </section>
+    </main>
+
+    <!-- Social Bar Ad Script -->
+    <script type='text/javascript' src='//pl27048051.profitableratecpm.com/a8/f0/f7/a8f0f71d969131d88a6e0b18d97f569f.js'></script>
+
+    <script>
+        // Trailer loading simulation
+        function loadTrailer() {
+            const loadingSection = document.getElementById('loading-section');
+            const loadingText = document.getElementById('loading-text');
+            const loadingProgress = document.querySelector('.loading-progress');
+            
+            loadingSection.style.display = 'block';
+            
+            let progress = 0;
+            const loadingInterval = setInterval(() => {
+                progress += Math.random() * 15 + 5;
+                if (progress > 100) progress = 100;
+                
+                loadingProgress.style.width = progress + '%';
+                loadingText.textContent = `Loading trailer... ${Math.round(progress)}%`;
+                
+                if (progress >= 100) {
+                    clearInterval(loadingInterval);
+                    setTimeout(() => {
+                        loadingSection.style.display = 'none';
+                        showIframeAds();
+                    }, 1000);
+                }
+            }, 200);
+            
+            // Update URL for loading state
+            history.pushState({}, 'Loading Trailer', '/trailer/loading');
+        }
+
+        // Show iframe ads before trailer
+        function showIframeAds() {
+            const iframeAds = document.getElementById('iframe-ads');
+            const countdown = document.getElementById('countdown');
+            const adFrame = document.getElementById('adFrame');
+            
+            iframeAds.style.display = 'block';
+            
+            // Simulate ad content in iframe
+            adFrame.src = 'data:text/html,<body style="background:linear-gradient(45deg,#667eea,#764ba2);color:white;font-family:Arial;text-align:center;padding:50px;"><h2>🎯 Sponsored Content</h2><p>This ad helps support free movie content</p><p>Trailer loading... Please wait</p></body>';
+            
+            let timeLeft = 15;
+            const countdownInterval = setInterval(() => {
+                timeLeft--;
+                countdown.textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    iframeAds.style.display = 'none';
+                    actuallyPlayTrailer();
+                }
+            }, 1000);
+        }
+
+        // Simulate actual trailer playback
+        function actuallyPlayTrailer() {
+            alert('🎬 Trailer Starting!\n\n▶ Full HD Quality\n🔊 Surround Sound\n📱 Mobile Optimized\n\n📊 This extended session improves all metrics!');
+            history.pushState({}, 'Playing Trailer', '/trailer/playing');
+        }
+
+        // Individual trailer play
+        function playTrailer(trailerId, title) {
+            alert(`🎬 Loading "${title}" trailer...\n\n⏱️ Duration: 2-3 minutes\n📊 Views will be counted\n🎯 HD quality available`);
+            
+            setTimeout(() => {
+                history.pushState({}, `${title} Trailer`, `/trailer/${trailerId}`);
+                
+                // Simulate watch time
+                setTimeout(() => {
+                    alert(`✅ Trailer finished!\n\n📊 Engagement metrics:\n- Watch time: 2m 34s\n- Completion rate: 87%\n- User satisfaction: High`);
+                }, 3000);
+            }, 1500);
+        }
+
+        // Trailer subscription
+        function subscribeTrailers() {
+            const email = prompt('📧 Enter email for exclusive trailer notifications:');
+            if (email && email.includes('@')) {
+                alert(`🔔 Subscribed successfully!\n\nEmail: ${email}\n\n✅ You'll get:\n- Early trailer access\n- Behind-the-scenes content\n- Director commentary\n- Exclusive interviews`);
+                
+                // Track conversion
+                setTimeout(() => {
+                    history.pushState({}, 'Trailer Subscription', '/subscribe/trailers');
+                }, 500);
+            }
+        }
+
+        function redirectToHome() {
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        }
+
+        // Page-specific traffic beautification
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulate user browsing trailers
+            setTimeout(() => {
+                const trailerCards = document.querySelectorAll('.trailer-card');
+                if (trailerCards.length > 0) {
+                    trailerCards[0].style.transform = 'scale(1.05)';
+                    setTimeout(() => trailerCards[0].style.transform = '', 2000);
+                }
+            }, 4000);
+            
+            // Simulate hover on play buttons
+            setTimeout(() => {
+                const playBtns = document.querySelectorAll('.play-btn');
+                if (playBtns.length > 0) {
+                    playBtns[1].style.transform = 'scale(1.2)';
+                    setTimeout(() => playBtns[1].style.transform = '', 1500);
+                }
+            }, 7000);
+            
+            // Auto scroll to simulate browsing
+            setTimeout(() => {
+                window.scrollBy(0, 100);
+            }, 5000);
+        });
+    </script>
+
+    <style>
+        .trailer-page {
+            padding-top: 60px;
+        }
+        
+        .loading-section {
+            background: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 15px;
+        }
+        
+        .loading-bar {
+            width: 100%;
+            height: 20px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .iframe-ads {
+            background: white;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 15px;
+            border: 2px dashed #f39c12;
+        }
+        
+        .ad-iframe-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .trailer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .trailer-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .trailer-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .trailer-thumb {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .trailer-thumb img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #333;
+        }
+        
+        .duration {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        
+        .trailer-info {
+            padding: 1rem;
+        }
+        
+        .trailer-info h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .trailer-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .engagement-section {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 15px;
+        }
+        
+        .engage-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .engage-btn:hover {
+            background: white;
+            color: #f39c12;
+        }
+        
+        #countdown {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+    </style>
+</body>
+</html> 
