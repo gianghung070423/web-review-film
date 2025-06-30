@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ads Integration Demo - Movie Reviews</title>
 <link rel="stylesheet" href="style.css">
+
+<!-- Multiple High-Revenue Ad Scripts -->
+<script type='text/javascript' src='//pl27048043.profitableratecpm.com/6c/39/3d/6c393d1b45230786e52f4a3923ab72b3.js'></script>
+<script async="async" data-cfasync="false" src="//pl27048055.profitableratecpm.com/68a18a2d75a6397d1a6b213d2d877fae/invoke.js"></script>
 </head>
 <body>
 <nav class="navbar">
@@ -48,6 +52,45 @@
 <p>💰 CPM: $5-15</p>
 </div>
 </div>
+
+<!-- Popunder Ad -->
+<div class="ad-slot popunder-ad">
+<div class="ad-placeholder">
+<h4>🚀 Popunder Ad (ACTIVE)</h4>
+<p>Full browser window</p>
+<p>💰 CPM: $10-25</p>
+<small>✅ Script loaded above</small>
+</div>
+</div>
+
+<!-- Native Banner Ad -->
+<div class="ad-slot native-ad">
+<div class="ad-placeholder">
+<h4>📰 Native Banner (ACTIVE)</h4>
+<p>Responsive content ads</p>
+<p>💰 CPM: $5-12</p>
+<div id="container-68a18a2d75a6397d1a6b213d2d877fae"></div>
+</div>
+</div>
+
+<!-- Banner 300x250 -->
+<div class="ad-slot banner-300-ad">
+<div class="ad-placeholder">
+<h4>🖼️ Banner 300x250 (ACTIVE)</h4>
+<p>High-performing format</p>
+<p>💰 CPM: $4-10</p>
+<script type="text/javascript">
+atOptions = {
+'key' : '30738a87f3de290512b5764ec3d009b6',
+'format' : 'iframe',
+'height' : 250,
+'width' : 300,
+'params' : {}
+};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/30738a87f3de290512b5764ec3d009b6/invoke.js"></script>
+</div>
+</div>
 </div>
 
 <div class="content-main">
@@ -71,6 +114,17 @@
 <h3>🎮 Interact to increase engagement</h3>
 <button onclick="showSurvey()" class="engage-btn">What movie genre do you like?</button>
 <button onclick="showNewsletter()" class="engage-btn">Subscribe for notifications</button>
+<button onclick="calculateRevenue()" class="engage-btn">💰 Calculate Revenue</button>
+</div>
+
+<!-- Social Bar Ad Demo -->
+<div class="ad-slot social-bar-ad">
+<div class="ad-placeholder">
+<h4>📱 Social Bar (ACTIVE)</h4>
+<p>Bottom engagement bar</p>
+<p>💰 CPM: $3-8</p>
+<small>✅ Script loaded at page bottom</small>
+</div>
 </div>
 
 <!-- Footer Ad -->
@@ -129,7 +183,20 @@ if (email) {
 alert(`✅ Successfully subscribed with email: ${email}`);
 }
 }
+
+// Revenue Calculator
+function calculateRevenue() {
+const visitors = prompt('💰 Enter daily visitors to calculate revenue:');
+if (visitors && !isNaN(visitors)) {
+const low = (visitors * 0.05).toFixed(2);
+const high = (visitors * 0.12).toFixed(2);
+alert(`💸 Estimated Daily Revenue:\n\n${visitors} visitors = $${low} - $${high}\n\n🎯 With all 4 active ad types:\n- Popunder: $10-25 CPM\n- Native: $5-12 CPM\n- Banner: $4-10 CPM\n- Social Bar: $3-8 CPM`);
+}
+}
 </script>
+
+<!-- Social Bar Ad Script - Load at Bottom -->
+<script type='text/javascript' src='//pl27048051.profitableratecpm.com/a8/f0/f7/a8f0f71d969131d88a6e0b18d97f569f.js'></script>
 
 <style>
 .ads-demo-page{padding-top:60px;background:#f8f9fa}
