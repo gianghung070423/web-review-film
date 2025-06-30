@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avatar: The Way of Water - Detailed Review</title>
+<meta name="description" content="Detailed review of Avatar: The Way of Water - James Cameron's blockbuster masterpiece">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+<div class="nav-container">
+<div class="nav-logo">🎬 Movie Reviews</div>
+<ul class="nav-menu">
+<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+<li class="nav-item"><a href="index.html#movies" class="nav-link">New Movies</a></li>
+<li class="nav-item"><a href="index.html#reviews" class="nav-link">Reviews</a></li>
+<li class="nav-item"><a href="index.html#trending" class="nav-link">Trending</a></li>
+<li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<main class="movie-detail-page">
+<div class="movie-hero">
+<div class="movie-backdrop">
+<img src="https://picsum.photos/1200/600?random=11" alt="Avatar Backdrop">
+<div class="hero-overlay">
+<div class="movie-title">
+<h1>Avatar: The Way of Water</h1>
+<div class="movie-meta">
+<span>⭐ 9.2/10</span>
+<span>🎬 Sci-Fi</span>
+<span>⏱️ 192 minutes</span>
+<span>📅 2022</span>
+</div>
+<button class="play-trailer-btn" onclick="playTrailer('Avatar: The Way of Water')">▶ Watch Trailer</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="movie-content">
+<section class="movie-info">
+<div class="poster-section">
+<img src="https://picsum.photos/300/450?random=12" alt="Avatar Poster">
+</div>
+<div class="details-section">
+<h2>📖 Synopsis</h2>
+<p>After more than a decade of waiting, James Cameron returns with Avatar: The Way of Water, the sequel in the Avatar series. This time, the Jake Sully family faces new challenges as they explore Pandora's underwater world.</p>
+
+<h3>🌟 Highlights</h3>
+<ul>
+<li>Top-tier CGI technology with stunning underwater scenes</li>
+<li>Deep message about environment and family</li>
+<li>High-quality IMAX audio and visuals</li>
+<li>Natural acting from the cast</li>
+</ul>
+
+<h3>⚠️ Notes</h3>
+<ul>
+<li>Quite long runtime (3 hours 12 minutes)</li>
+<li>Should be watched in IMAX format for maximum experience</li>
+</ul>
+</div>
+</section>
+
+<section class="review-section">
+<h2>📝 Detailed Review</h2>
+<div class="review-content">
+<h3>🎨 Technical & Visuals (10/10)</h3>
+<p>James Cameron once again proves why he's a master of cinema technology. The underwater scenes are executed with stunning realism, creating a vivid and mysterious Pandora world.</p>
+
+<h3>📚 Storyline (8/10)</h3>
+<p>The story focuses on the Jake Sully family as they must leave the forest to find safe shelter. Though simple, the message about family and environmental protection is very touching.</p>
+
+<h3>🎭 Acting (9/10)</h3>
+<p>Sam Worthington and Zoe Saldana continue to deliver excellent performances. Especially, the young actors perform very naturally and convincingly.</p>
+
+<h3>🎵 Music (9/10)</h3>
+<p>James Horner created a wonderful soundtrack that blends perfectly with Pandora's world atmosphere.</p>
+</div>
+</section>
+
+<section class="related-movies">
+<h2>🎬 Related Movies</h2>
+<div class="related-grid">
+<div class="related-item" onclick="alert('Go to Dune...')">
+<img src="https://picsum.photos/200/300?random=13" alt="Dune">
+<h4>Dune</h4>
+<p>⭐ 8.5/10</p>
+</div>
+<div class="related-item" onclick="alert('Go to Blade Runner...')">
+<img src="https://picsum.photos/200/300?random=14" alt="Blade Runner">
+<h4>Blade Runner 2049</h4>
+<p>⭐ 8.8/10</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+
+<footer>
+<p>&copy; 2024 Movie Reviews. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Page-specific JavaScript
+function playTrailer(title) {
+alert(`🎬 Playing trailer "${title}"...\n\n🍿 Video will start now!`);
+}
+</script>
+
+<style>
+.movie-detail-page{padding-top:60px}
+.movie-hero{position:relative;height:60vh;overflow:hidden}
+.movie-backdrop img{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to top,rgba(0,0,0,0.8),rgba(0,0,0,0.3));display:flex;align-items:end;padding:2rem}
+.movie-title h1{font-size:3rem;color:white;margin-bottom:1rem}
+.movie-meta{display:flex;gap:1rem;margin-bottom:2rem;color:white}
+.movie-meta span{background:rgba(255,255,255,0.2);padding:0.5rem 1rem;border-radius:20px}
+.play-trailer-btn{background:#27ae60;color:white;border:none;padding:1rem 2rem;border-radius:50px;font-size:1.1rem;cursor:pointer}
+.movie-content{max-width:1200px;margin:0 auto;padding:2rem}
+.movie-info{display:grid;grid-template-columns:300px 1fr;gap:2rem;margin-bottom:3rem}
+.poster-section img{width:100%;border-radius:10px}
+.details-section h2{color:#2c3e50;margin-bottom:1rem}
+.details-section ul{margin:1rem 0;padding-left:1.5rem}
+.review-section{background:white;padding:2rem;border-radius:15px;margin-bottom:2rem}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.related-item{background:white;border-radius:10px;overflow:hidden;cursor:pointer;transition:transform 0.3s}
+.related-item:hover{transform:translateY(-5px)}
+.related-item img{width:100%;height:200px;object-fit:cover}
+.related-item h4{padding:0.5rem 1rem;color:#2c3e50}
+.related-item p{padding:0 1rem 1rem;color:#666}
+@media (max-width:768px){
+.movie-info{grid-template-columns:1fr}
+.movie-title h1{font-size:2rem}
+.movie-meta{flex-wrap:wrap}
+}
+</style>
+</body>
+</html> 

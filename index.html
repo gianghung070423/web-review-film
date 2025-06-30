@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Reviews - Latest Movie Reviews & Ratings</title>
+    <meta name="description" content="Best movie reviews, latest movie ratings. Watch trailers and read detailed reviews of hot movies.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">🎬 Movie Reviews</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link active" onclick="showPage('home')">Home</a></li>
+                <li class="nav-item"><a href="#movies" class="nav-link" onclick="showPage('movies')">New Movies</a></li>
+                <li class="nav-item"><a href="#reviews" class="nav-link" onclick="showPage('reviews')">Reviews</a></li>
+                <li class="nav-item"><a href="#trending" class="nav-link" onclick="showPage('trending')">Trending</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link" onclick="showPage('contact')">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page active">
+        <header class="hero">
+            <div class="hero-content">
+                <h1>🎬 Best Movie Reviews</h1>
+                <p>Discover the most worth-watching movies with detailed reviews and hot trailers</p>
+                <button class="cta-btn" onclick="showPage('movies')">Watch New Movies</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="featured-movies">
+                <h2>🌟 Featured Movies</h2>
+                <div class="movie-grid">
+                    <article class="movie-card" onclick="openMovieDetail('avatar')">
+                        <div class="movie-poster">
+                            <img src="https://picsum.photos/300/400?random=1" alt="Avatar: The Way of Water" loading="lazy">
+                            <div class="play-overlay">
+                                <div class="play-btn">▶</div>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h3>Avatar: The Way of Water</h3>
+                            <div class="rating">⭐ 9.2/10</div>
+                            <p>Journey to explore the underwater world...</p>
+                        </div>
+                    </article>
+
+                    <article class="movie-card" onclick="openMovieDetail('topgun')">
+                        <div class="movie-poster">
+                            <img src="https://picsum.photos/300/400?random=2" alt="Top Gun: Maverick" loading="lazy">
+                            <div class="play-overlay">
+                                <div class="play-btn">▶</div>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h3>Top Gun: Maverick</h3>
+                            <div class="rating">⭐ 8.8/10</div>
+                            <p>Tom Cruise returns with his iconic role...</p>
+                        </div>
+                    </article>
+
+                    <article class="movie-card" onclick="openMovieDetail('spiderman')">
+                        <div class="movie-poster">
+                            <img src="https://picsum.photos/300/400?random=3" alt="Spider-Man: No Way Home" loading="lazy">
+                            <div class="play-overlay">
+                                <div class="play-btn">▶</div>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h3>Spider-Man: No Way Home</h3>
+                            <div class="rating">⭐ 9.0/10</div>
+                            <p>Historic meeting of 3 generations of Spider-Man...</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="trending-section">
+                <h2>🔥 Trending Now</h2>
+                <div class="trending-list">
+                    <div class="trending-item" onclick="openMovieDetail('wednesday')">
+                        <img src="https://picsum.photos/80/120?random=4" alt="Wednesday">
+                        <div class="trending-info">
+                            <h4>Wednesday</h4>
+                            <p>Horror comedy series</p>
+                        </div>
+                        <button class="watch-btn">Watch Now</button>
+                    </div>
+                    <div class="trending-item" onclick="openMovieDetail('stranger')">
+                        <img src="https://picsum.photos/80/120?random=5" alt="Stranger Things">
+                        <div class="trending-info">
+                            <h4>Stranger Things S4</h4>
+                            <p>Dramatic final season</p>
+                        </div>
+                        <button class="watch-btn">Watch Now</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- MOVIES PAGE -->
+    <div id="movies-page" class="page">
+        <header class="page-header">
+            <h1>🎬 New Releases</h1>
+            <p>Latest movies updated weekly</p>
+        </header>
+        <main class="movies-container">
+            <div class="filter-bar">
+                <button class="filter-btn active" onclick="filterMovies('all')">All</button>
+                <button class="filter-btn" onclick="filterMovies('action')">Action</button>
+                <button class="filter-btn" onclick="filterMovies('drama')">Drama</button>
+                <button class="filter-btn" onclick="filterMovies('comedy')">Comedy</button>
+            </div>
+            <div class="movies-grid">
+                <div class="movie-item" data-genre="action" onclick="openMovieDetail('thor')">
+                    <img src="https://picsum.photos/250/350?random=6" alt="Thor: Love and Thunder">
+                    <h3>Thor: Love and Thunder</h3>
+                    <p>⭐ 7.5/10 | Action</p>
+                </div>
+                <div class="movie-item" data-genre="drama" onclick="openMovieDetail('everything')">
+                    <img src="https://picsum.photos/250/350?random=7" alt="Everything Everywhere">
+                    <h3>Everything Everywhere All at Once</h3>
+                    <p>⭐ 8.9/10 | Drama</p>
+                </div>
+                <div class="movie-item" data-genre="comedy" onclick="openMovieDetail('minions')">
+                    <img src="https://picsum.photos/250/350?random=8" alt="Minions">
+                    <h3>Minions: The Rise of Gru</h3>
+                    <p>⭐ 7.8/10 | Comedy</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- REVIEWS PAGE -->
+    <div id="reviews-page" class="page">
+        <header class="page-header">
+            <h1>📝 Detailed Reviews</h1>
+            <p>In-depth analysis from expert reviewers</p>
+        </header>
+        <main class="reviews-container">
+            <article class="review-article">
+                <img src="https://picsum.photos/400/200?random=9" alt="Avatar Review">
+                <div class="review-content">
+                    <h2>Avatar: The Way of Water - A New Visual Masterpiece</h2>
+                    <div class="review-meta">
+                        <span>📅 Dec 28, 2023</span>
+                        <span>👤 Admin</span>
+                        <span>⭐ 9.2/10</span>
+                    </div>
+                    <p>James Cameron once again proves his directorial brilliance with Avatar: The Way of Water. The film is not just a technical revolution...</p>
+                    <button class="read-more-btn" onclick="openFullReview('avatar')">Read More</button>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- TRENDING PAGE -->
+    <div id="trending-page" class="page">
+        <header class="page-header">
+            <h1>📈 Trending Today</h1>
+            <p>Most searched movies right now</p>
+        </header>
+        <main class="trending-container">
+            <div class="trending-chart">
+                <div class="chart-item" onclick="openMovieDetail('blackpanther')">
+                    <span class="rank">#1</span>
+                    <img src="https://picsum.photos/60/80?random=10" alt="Black Panther">
+                    <div class="chart-info">
+                        <h4>Black Panther: Wakanda Forever</h4>
+                        <p>↗️ +15%</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact-page" class="page">
+        <header class="page-header">
+            <h1>📞 Contact Us</h1>
+            <p>Send feedback or suggest new movies</p>
+        </header>
+        <main class="contact-container">
+            <form class="contact-form" onsubmit="submitContact(event)">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </main>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <h3>🔔 Subscribe for Updates</h3>
+        <form onsubmit="subscribe(event)">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Movie Reviews. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

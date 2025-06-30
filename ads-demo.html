@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ads Integration Demo - Movie Reviews</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+<div class="nav-container">
+<div class="nav-logo">🎬 Movie Reviews</div>
+<button onclick="window.location.href='index.html'" class="back-btn">← Back to Home</button>
+</div>
+</nav>
+
+<div class="ads-demo-page">
+<header class="demo-header">
+<h1>🎯 Ads Integration Demo</h1>
+<p>Illustrating optimal ad placements for revenue</p>
+</header>
+
+<!-- Header Ad -->
+<div class="ad-slot header-ad">
+<div class="ad-placeholder">
+<h3>📱 Header Banner Ad</h3>
+<p>728x90 Leaderboard</p>
+<p>💰 CPM: $2-5</p>
+</div>
+</div>
+
+<main class="demo-content">
+<div class="content-left">
+<!-- Sidebar Ad -->
+<div class="ad-slot sidebar-ad">
+<div class="ad-placeholder">
+<h4>📺 Sidebar Ad</h4>
+<p>300x250 Medium Rectangle</p>
+<p>💰 CPM: $3-7</p>
+</div>
+</div>
+
+<!-- Video Ad -->
+<div class="ad-slot video-ad">
+<div class="ad-placeholder">
+<h4>🎬 Video Ad</h4>
+<p>Player 640x360</p>
+<p>💰 CPM: $5-15</p>
+</div>
+</div>
+</div>
+
+<div class="content-main">
+<article class="demo-article">
+<h2>Demo article with optimized ads</h2>
+
+<p>This is demo content to illustrate effective ad integration. Content written naturally to increase engagement.</p>
+
+<!-- In-Article Ad -->
+<div class="ad-slot article-ad">
+<div class="ad-placeholder">
+<h4>📖 In-Article Ad</h4>
+<p>Native/Display 336x280</p>
+<p>💰 CPM: $4-8</p>
+</div>
+</div>
+
+<p>Continue article content to keep readers engaged and increase time on page.</p>
+
+<div class="engagement-section">
+<h3>🎮 Interact to increase engagement</h3>
+<button onclick="showSurvey()" class="engage-btn">What movie genre do you like?</button>
+<button onclick="showNewsletter()" class="engage-btn">Subscribe for notifications</button>
+</div>
+
+<!-- Footer Ad -->
+<div class="ad-slot footer-ad">
+<div class="ad-placeholder">
+<h4>🔻 Footer Banner</h4>
+<p>728x90 Leaderboard</p>
+<p>💰 CPM: $2-4</p>
+</div>
+</div>
+</article>
+</div>
+</main>
+
+<!-- Popup Ad Demo -->
+<div id="popup-ad" class="popup-ad" style="display:none">
+<div class="popup-content">
+<span class="close-popup" onclick="closePopup()">&times;</span>
+<div class="ad-placeholder">
+<h3>🎯 Popup/Interstitial Ad</h3>
+<p>Full screen overlay</p>
+<p>💰 CPM: $8-20</p>
+<button onclick="closePopup()">Close after 5s</button>
+</div>
+</div>
+</div>
+
+<!-- Sticky Ad -->
+<div class="ad-slot sticky-ad">
+<div class="ad-placeholder">
+<h4>📌 Sticky Bottom Ad</h4>
+<p>320x50 Mobile Banner</p>
+<p>💰 CPM: $1-3</p>
+</div>
+</div>
+
+</div>
+
+<script>
+// Demo popup ad after 10 seconds
+setTimeout(() => {
+document.getElementById('popup-ad').style.display = 'flex';
+}, 10000);
+
+function closePopup() {
+document.getElementById('popup-ad').style.display = 'none';
+}
+
+function showSurvey() {
+alert('🎭 Survey:\n\n1. Action\n2. Romance\n3. Horror\n4. Comedy\n\nThank you for participating!');
+}
+
+function showNewsletter() {
+const email = prompt('📧 Enter email to receive new movie notifications:');
+if (email) {
+alert(`✅ Successfully subscribed with email: ${email}`);
+}
+}
+</script>
+
+<style>
+.ads-demo-page{padding-top:60px;background:#f8f9fa}
+.demo-header{text-align:center;padding:2rem;background:white;margin:1rem;border-radius:10px}
+.back-btn{background:#667eea;color:white;border:none;padding:0.5rem 1rem;border-radius:5px;cursor:pointer}
+.demo-content{display:grid;grid-template-columns:300px 1fr;gap:1rem;padding:1rem;max-width:1200px;margin:0 auto}
+.content-left{display:flex;flex-direction:column;gap:1rem}
+.ad-slot{margin:1rem 0}
+.ad-placeholder{background:linear-gradient(45deg,#ff6b6b,#4ecdc4);color:white;padding:1rem;border-radius:8px;text-align:center;border:2px dashed #fff}
+.header-ad{margin:1rem}
+.sidebar-ad,.video-ad{background:white;border-radius:10px;overflow:hidden}
+.article-ad{margin:2rem 0}
+.footer-ad{margin-top:2rem}
+.sticky-ad{position:fixed;bottom:0;left:0;right:0;z-index:999;margin:0}
+.popup-ad{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:2000;display:flex;align-items:center;justify-content:center}
+.popup-content{background:white;padding:2rem;border-radius:15px;position:relative;max-width:400px;margin:1rem}
+.close-popup{position:absolute;top:10px;right:15px;font-size:1.5rem;cursor:pointer}
+.demo-article{background:white;padding:2rem;border-radius:15px}
+.engagement-section{background:#f8f9fa;padding:1.5rem;border-radius:10px;margin:2rem 0;text-align:center}
+.engage-btn{background:#27ae60;color:white;border:none;padding:0.8rem 1.5rem;border-radius:5px;margin:0.5rem;cursor:pointer}
+@media (max-width:768px){
+.demo-content{grid-template-columns:1fr}
+.content-left{order:2}
+}
+</style>
+</body>
+</html> 
