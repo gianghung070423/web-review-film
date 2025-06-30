@@ -106,4 +106,15 @@ footer{background:#2c3e50;color:white;text-align:center;padding:2rem;margin-top:
 
 /* Animations */
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.page.active{animation:fadeIn 0.5s ease} 
+.page.active{animation:fadeIn 0.5s ease}
+
+/* Ad Sections */
+.native-ad-section{margin:2rem 0;padding:1.5rem;text-align:center;background:#f8f9fa;border-radius:10px;border:2px dashed #ddd}
+.sidebar-banner{position:fixed;top:50%;right:20px;transform:translateY(-50%);z-index:999;background:white;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:10px}
+.banner-300x250{width:300px;height:250px;display:flex;align-items:center;justify-content:center;background:#f8f9fa;border-radius:8px}
+
+@media (max-width:768px){
+.sidebar-banner{position:static;transform:none;margin:1rem auto;max-width:300px;right:auto}
+.native-ad-section{margin:1rem 0;padding:1rem}
+.banner-300x250{width:100%;max-width:300px;height:auto;min-height:200px}
+} 
